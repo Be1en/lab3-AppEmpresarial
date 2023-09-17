@@ -1,0 +1,21 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Productos</title>
+</head>
+<body>
+    <h1>Listado de Productos</h1>
+    {% if productos %}
+        <ul>
+            {% for producto in productos %}
+                <li>{{ producto.nombre }} - Precio: ${{ producto.precio_actual }} - Stock: {{ producto.stock }} - Proveedor: {{ producto.proveedor.nombre }} - Categoría: {{ producto.categoria.nombre }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No hay productos registrados.</p>
+    {% endif %}
+    <a href="{% url 'ventas:index' %}">Ir al Inicio</a>
+
+</body>
+</html>

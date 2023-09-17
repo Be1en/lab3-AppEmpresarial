@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Clientes</title>
+</head>
+<body>
+    <h1>Listado de Clientes</h1>
+    {% if clientes %}
+        <ul>
+            {% for cliente in clientes %}
+                <li>
+                    {{ cliente.nombre }} - {{ cliente.direccion_calle }},
+                    {{ cliente.direccion_numero }}, {{ cliente.direccion_comuna }},
+                    {{ cliente.direccion_ciudad }}
+
+                    {% comment %} Itera sobre los teléfonos del cliente {% endcomment %}
+                    {% for telefono in telefonos %}
+                        {% if telefono.cliente == cliente %}
+                            - Teléfono: {{ telefono.telefono }}
+                        {% endif %}
+                    {% endfor %}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No hay clientes registrados.</p>
+    {% endif %}
+    <a href="{% url 'ventas:index' %}">Ir al Inicio</a>
+</body>
+</html>
+

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ventas</title>
+</head>
+<body>
+    <h1>Listado de Ventas</h1>
+    {% if ventas %}
+        <ul>
+            {% for venta in ventas %}
+                <li>Factura #{{ venta.numero_factura }} - Fecha: {{ venta.fecha }} - Cliente: {{ venta.cliente.nombre }} - Descuento: {{ venta.descuento }}% - Monto Final: ${{ venta.monto_final }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No hay ventas registradas.</p>
+    {% endif %}
+    <a href="{% url 'ventas:index' %}">Ir al Inicio</a>
+</body>
+</html>

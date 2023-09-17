@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ingresar Proveedor</title>
+</head>
+<body>
+    <h1>Ingresar Proveedor</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar</button>
+    </form>
+    <a href="{% url 'ventas:index' %}">Ir al Inicio</a>
+
+</body>
+</html>

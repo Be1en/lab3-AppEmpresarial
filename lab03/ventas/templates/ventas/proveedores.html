@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Proveedores</title>
+</head>
+<body>
+    <h1>Listado de Proveedores</h1>
+    {% if proveedores %}
+        <ul>
+            {% for proveedor in proveedores %}
+                <li>{{ proveedor.nombre }} - {{ proveedor.direccion_calle }}, {{ proveedor.direccion_numero }}, {{ proveedor.direccion_comuna }}, {{ proveedor.direccion_ciudad }}, {{ proveedor.telefono}}, {{ proveedor.pagina_web}}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No hay proveedores registrados.</p>
+    {% endif %}
+    <a href="{% url 'ventas:index' %}">Ir al Inicio</a>
+
+</body>
+</html>
